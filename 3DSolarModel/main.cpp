@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> mahir
 #include<GL/glut.h>
 #include <math.h>
 #include<GL/glu.h>
 #include<GL/glext.h>
 #include<GL/gl.h>
 #define PI 3.1415926535897932384626433832795
+<<<<<<< HEAD
 
 static int mercuryRadius = 200;
 static int venusRadius = mercuryRadius + 150;
@@ -17,6 +21,18 @@ static float  mars = 360.0 /  686.98;
 
 static float   earthAngle    = 0.0f;
 static float   marsAngle     = 0.0f;
+=======
+static int mercuryRadius = 200;
+static int venusRadius = mercuryRadius + 150;
+
+
+static float  mercury = 360.0 / 87.97;
+static float  venus = 360.0 / 224.70;
+
+
+static float  mercuryAngle = 0.0f;
+static float  venusAngle    = 0.0f;
+>>>>>>> mahir
 
 
 
@@ -80,6 +96,7 @@ void renderScence(void){
 
     changeColour(1.0, 1.0, 1.0, 1.0);
 
+<<<<<<< HEAD
 
 glBegin(GL_POINTS);
 for(double i = 0; i < 2 * PI; i += PI /earthRadius) // change this value
@@ -141,18 +158,58 @@ changeColour(170/255.0, 60/255.0, 5/255.0, 0.0);
 GLUquadric *Mars;
 Mars = gluNewQuadric();
 gluSphere(Mars,18.4,100,100);
+=======
+glBegin(GL_POINTS);
+for(double i = 0; i< 2 * PI; i += PI / mercuryRadius) // change this value
+    glVertex3f(cos(i) * mercuryRadius, 1.0, sin(i) * mercuryRadius);
+glEnd();
+
+glBegin(GL_POINTS);
+for(double i = 0; i < 2 * PI; i += PI /venusRadius) // change this value
+    glVertex3f(cos(i) *  venusRadius, 1.0, sin(i) * venusRadius);
+glEnd();
+
+
+//Mercury
+glPushMatrix();
+glRotatef(mercuryAngle, 0.0f,1.0f, 0.0f);
+glTranslatef(mercuryRadius, 0.0, 0.0);
+changeColour(66/255.0, 61/255.0, 57/255.0, 0.0);
+GLUquadric *Mercury;
+Mercury = gluNewQuadric();
+gluSphere(Mercury, 10, 100, 100);
+glPopMatrix();
+
+
+//Venus
+glPushMatrix();
+glRotatef(venusAngle, 0.0f,1.0f, 0.0f);
+glTranslatef(venusRadius, 0.0, 0.0);
+changeColour(140.0/255.0, 70.0/255.0, 0.0, 0.0);
+GLUquadric *Venus;
+Venus = gluNewQuadric();
+gluSphere(Venus, 25.8, 100, 100);
+>>>>>>> mahir
 glPopMatrix();
 
 
 angle+= 0.2f;
+<<<<<<< HEAD
 earthAngle += earth / 10;
 marsAngle+= mars / 10;
+=======
+mercuryAngle += mercury / 10;
+venusAngle += venus/ 10;
+>>>>>>> mahir
 
 //if (angle == 360) angle =0;
 glutSwapBuffers();
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> mahir
 void mouse (int button, int state, int x, int y)
 {
 switch (button) {
